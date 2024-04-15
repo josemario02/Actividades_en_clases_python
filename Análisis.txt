@@ -1,0 +1,48 @@
+Descripción del Problema:
+El objetivo es desarrollar un juego de memoria simple que desafíe al usuario a recordar y encontrar un valor oculto dentro de una cuadrícula de caracteres.
+
+Entrada(s):
+
+-El tamaño de la cuadrícula n×n, ingresado por el usuario.
+
+
+Salida(s):
+
+-Un mensaje indicando si el usuario ha encontrado correctamente el valor oculto.
+-Un mensaje el cual indique si la persona desea seguir jugando (si o no (s/n)) 
+
+
+Otras variables:
+
+-Values: la cual es una lista de caracteres que contiene letras mayúsculas, letras minúsculas, dígitos y caracteres especiales.
+
+-time_limit: Límite de tiempo para memorizar la cuadrícula, calculado en función del tamaño de la cuadrícula.
+
+-hidden_value: Valor oculto dentro de la cuadrícula.
+
+-guess : el valor ingresado por el jugador 
+
+Proceso:
+
+-Se solicita al usuario el tamaño de la cuadrícula.
+
+-Se genera una cuadrícula de caracteres aleatorios utilizando la función generate_grid(n).
+
+-Se muestra la cuadrícula al usuario para que la memorice durante un tiempo limitado.
+
+-Se oculta un valor aleatorio dentro de la cuadrícula utilizando la función hide_value(grid, value).
+
+-Se muestra la cuadrícula al usuario nuevamente, con el valor oculto reemplazado por un asterisco (*).
+
+-Se solicita al usuario que ingrese su respuesta.
+
+-Se compara la respuesta del usuario con el valor oculto.
+
+-Se revela el valor oculto y se muestra un mensaje indicando si la respuesta del usuario fue correcta.
+
+
+Restricciones:
+
+-El usuario debe ingresar un tamaño de cuadrícula mayor que cero.
+
+-El usuario debe ingresar su respuesta antes de que se agote el tiempo límite para memorizar la cuadrícula.

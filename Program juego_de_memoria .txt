@@ -1,0 +1,108 @@
+Program juego_de_memoria 
+// Desarrollar un juego de memoria simple que desafíe al usuario a recordar y encontrar un valor oculto dentro de una cuadrícula de caracteres.
+
+
+Start
+
+         Declare Integer n, time_limit 
+         Declare string values 
+         Character hidden_value, guess
+         2D array of characters grid[n][n]
+
+         Display "Enter the size of the grid (n*n): "
+         Input n
+
+         // Validate that n is greater than zero
+        While n <= 0
+          Display "El tamaño de la cuadrícula debe ser mayor que cero. Ingrese nuevamente: "
+          Input n
+       End While
+
+         time_limit <- calculate_time_limit(n)
+
+        generate_grid(n, Values, grid)
+        Display "Memorize the grid for ", time_limit, " seconds:"
+        show_grid(grid)
+        wait(time_limit)
+
+        hide_value(grid, Values, hidden_value)
+        show_hidden_grid(grid)
+    
+        Display "Enter your guess about the location of the hidden value: "
+        Input guess
+
+       If compare_response(guess, hidden_value) then
+           Display "¡Has encontrado el valor oculto correctamente!"
+       Else
+           Display "Lo siento, tu suposición es incorrecta. El valor oculto era ", hidden_value
+       End If
+
+      Display "Do you want to play again? (s/n): "
+        Input response
+      If response = "s" or response = "S" then
+          Start
+      Else
+          Stop
+      End If
+  End
+
+       Function calculate_time_limit(n)
+               Integer base_time <- 3
+               Float extra_time <- 0.5 * (n - 3)
+               Float time_limit <- base_time + extra_time
+               Return time_limit
+       End Function
+
+        Function generate_grid(n, Values, grid)
+           For each row in grid
+             For each column in row
+            grid[row][column] <- random value from Values
+             End For
+           End For
+        End Function
+
+      Function hide_value(grid, Values, hidden_value)
+        hidden_value <- random value from Values
+        Integer pos_i <- random number between 0 and n - 1
+        Integer pos_j <- random number between 0 and n - 1
+        grid[pos_i][pos_j] <- hidden_value
+      End Function
+
+     Function show_grid(grid)
+        For each row in grid
+            For each column in row
+               Display grid[row][column]
+            End For
+               Display new line
+        End For
+     End Function
+
+     Function show_hidden_grid(grid)
+          For each row in grid
+             For each column in row
+               If grid[row][column] = hidden_value then
+                  Display "*"
+               Else
+                  Display grid[row][column]
+               End If
+            End For
+               Display new line
+          End For
+     End Function
+
+     Function compare_response(response, hidden_value) -> boolean
+             If response = hidden_value then
+                  Return True
+                Else
+      	           Return False
+    	     End If
+      End Function
+
+     Function wait(time)
+          // Implement wait function for time
+     End Function
+
+
+Stop
+
+	 
